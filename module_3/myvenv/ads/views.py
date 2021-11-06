@@ -22,5 +22,27 @@ class HomeAds(TemplateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        print('yes done')
-        return 0
+        return HttpResponse('запрос на создание новой записи успешно выполнен')
+
+
+class About(TemplateView):
+    template_name = 'about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['company_name'] = 'Фуркочка'
+        context['about'] = 'Нашей комании уже 12 лет и все это время мы плохо делаем задания по питону, а все из-за' \
+                           'нечеткого ТЗ, пожалуйста когда отправляете ТЗ прочитайте его хотя бы, с уважением ваши' \
+                           ' Фуркочка'
+        return context
+
+class Contacts(TemplateView):
+    template_name = 'contacts.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['phone'] = '+312318212523'
+        context['adress'] = 'ул. Домодедова строение 25, корпус 1'
+        context['telegram'] = '@furcko4ka'
+        context['viber'] = '+712318212523'
+        return context
