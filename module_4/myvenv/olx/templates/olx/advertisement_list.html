@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OLX</title>
+    <h1>Бесплатные обьявления</h1>
+    {% if advertisement_list %}
+    <ul>
+        {% for advertisement in advertisement_list %}
+        <li>
+            <a href="/olx/{{advertisement.id}}">{{ advertisement.title }}</a> <a> Цена: {{ advertisement.price }} рублей. Каталог: {{ advertisement.catalog_data_id }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Обьявлений пока нет</p>
+    {% endif %}
+</head>
+<body>
+
+</body>
+</html>
