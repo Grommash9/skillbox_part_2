@@ -20,7 +20,6 @@ class Advertisement(models.Model):
 
 
 
-
 class AdvertisementSeller(models.Model):
     name = models.CharField(max_length=1000, verbose_name='Имя')
     contact_phone = models.CharField(max_length=20, verbose_name='Номер телефона')

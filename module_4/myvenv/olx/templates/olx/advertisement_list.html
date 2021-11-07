@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>OLX</title>
-    <h1>Бесплатные обьявления</h1>
+    <h1>Все бесплатные обьявления</h1>
     {% if advertisement_list %}
     <ul>
         {% for advertisement in advertisement_list %}
         <li>
-            <a href="/olx/{{advertisement.id}}">{{ advertisement.title }}</a> <a> Цена: {{ advertisement.price }} рублей. Каталог: {{ advertisement.catalog_data_id }}</a>
+            {% for id, name in catalogs_dict.items %}
+                {% if id == advertisement.catalog_data_id %}
+                     <a href="/olx/{{advertisement.id}}">{{ advertisement.title }}</a>
+                    <p>Цена: {{ advertisement.price }} рублей.</p>
+                    <p> Каталог: {{ name }}</p>
+                {% endif %}
+            {% endfor %}
         </li>
         {% endfor %}
     </ul>

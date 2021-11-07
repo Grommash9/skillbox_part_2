@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <h1>{{advertisement.title}}</h1>
-    <p>{{advertisement.discription}}</p>
-    <p>{{advertisement.end_data}}</p>
-    <p>{{advertisement.create_at}}</p>
-    <p>{{advertisement.views_count}}</p>
-    <p> ыв {{advertisement.catalog_data_id}}</p>
-    <p>ыв {{ catalog_name }}</p>
+    <p>Цена: {{ advertisement.price }} рублей</p>
+    <p>Описание: {{ advertisement.discription}}</p>
+    {% for id, name in catalogs_dict.items %}
+                {% if id == advertisement.catalog_data_id %}
+                    <p> Каталог: {{ name }}</p>
+                {% endif %}
+            {% endfor %}
+    {% for id, data in users_dict.items %}
+                {% if id == advertisement.seller_data_id %}
+                    <p> Продавец: {{ data.name }}</p>
+                    <p> Номер телефона: {{ data.contact_phone }}</p>
+                    <p> Имейл: {{ data.email }}</p>
+                {% endif %}
+            {% endfor %}
+    <p>Обявление было создано: {{advertisement.create_at}}</p>
+    <p>Будет доступно до: {{advertisement.end_data}}</p>
+    <p>Просмотров: {{advertisement.views_count}}</p>
+     <a href="/olx/"> К списку обьявлений</a>
 </head>
 <body>
 
