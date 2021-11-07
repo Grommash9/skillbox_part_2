@@ -19,6 +19,8 @@ class Advertisement(models.Model):
         return self.title
 
 
+
+
 class AdvertisementSeller(models.Model):
     name = models.CharField(max_length=1000, verbose_name='Имя')
     contact_phone = models.CharField(max_length=20, verbose_name='Номер телефона')
@@ -33,5 +35,6 @@ class AdvertisementCatalog(models.Model):
 
     def __str__(self):
         return self.catalog_name
+
 
 

@@ -10,14 +10,23 @@ class AdvertisementListView(generic.ListView):
     model = models.Advertisement
     template_name = 'advertisement_list.html'
 
-    context_object_name = 'advertisement_list'
+
+    def get_context_data(self, **kwargs):
+        print(self.model.discription)
+
+        context = super().get_context_data(**kwargs)
+        context['catalog_name'] = models.AdvertisementCatalog.objects.get(id=1)
+
+        return context
 
 
 class AdvertisementDetailView(generic.DetailView):
     model = models.Advertisement
 
     def get_context_data(self, **kwargs):
+
+
         context = super().get_context_data(**kwargs)
-        context['catalog_name'] = models.AdvertisementCatalog.get_next_in_order()
+        context['catalog_name'] = models.AdvertisementCatalog.objects.get(id=1)
 
         return context
