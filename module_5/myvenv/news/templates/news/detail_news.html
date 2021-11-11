@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{news.title}}</title>
+    <h1>{{news.title}}</h1>
+    <p>Описание: {{ news.description}}</p>
+    <p> Дата: {{ news.create_at }} </p>
+    <p> Последнее редактирование: {{ news.updated_at }} </p>
+    <p> Активно: {{ news.is_active }}</p>
+        {% if comments_list %}
+            {% for comments in comments_list %}
+            <p style="border:2px solid #555; border-radius:5px; width: 200px; text-align:center;  margin:20px; padding:20px;" >
+            Пользователь: {{ comments.user_name }} <br>
+            Коментрий: {{ comments.text }} <br>
+            Создан: {{ comments.create_at }} <br>
+            </p>
+            {% endfor %}
+        {% endif %}
+        <h2>Добавьте новый коментарий</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ comments_form.as_p }}
+            <button type="submit">Отправить</button>
+        </form>
+
+     <a href="/news/"> К списку новостей</a><br>
+    <a href="/delete/{{news.id}}"> Удалить новость</a><br>
+    <a href="/edit/{{news.id}}"> Редактировать</a>
+</head>
+<body>
+
+</body>
+</html>

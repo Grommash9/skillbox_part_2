@@ -18,6 +18,9 @@ class Advertisement(models.Model):
     def __str__(self):
         return self.title
 
+    def get_catalog(self):
+        return self.catalog_data
+
 
 
 class AdvertisementSeller(models.Model):
