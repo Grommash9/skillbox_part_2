@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{news.title}}</title>
+    <h1>Новость успешно отредактирована</h1>
+    <p>Заголовок: {{ news_instance.title}}</p>
+    <p>Описание: {{ news_instance.description}}</p>
+    <p> Дата: {{ news_instance.create_at }} </p>
+    <p> Последнее редактирование: {{ news_instance.updated_at }} </p>
+    <p> Активно: {{ news_instance.is_active }}</p>
+
+     <a href="/news/"> К списку новостей</a><br>
+    <a href="/delete/{{news.id}}"> Удалить новость</a><br>
+    <a href="/edit/{{news.id}}"> Редактировать</a>
+</head>
+<body>
+
+</body>
+</html>
